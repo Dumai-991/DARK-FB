@@ -6,7 +6,7 @@
 ### ★★ Bahan Script (Script Material) ★★
 * **Bagi Yang Sudah Install Tools**
 ```
-cd $HOME/premium
+cd $HOME/DARK-FB
 git pull
 python main.py
 ```
