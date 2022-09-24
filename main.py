@@ -2410,9 +2410,7 @@ class Main_:
 		Main()
 #		except:console.print_exception(show_locals=None,word_wrap=None,max_frames=100,extra_lines=0)
 
-#Main_()._no_vpn()
+Main_()._no_vpn()
 #cek_apk_hasil_crk()
-try:open("data/kata","r").read();print(f"{q}╔══════════════════════════════════════════════════════════════════════════════════════╗\n║                               {i}SELAMAT DATANG YANG KE{k} {ka['value']} {q}                             ║\n╚══════════════════════════════════════════════════════════════════════════════════════╝")
-except:open("data/kata","w").write("# SELAMAT DATANG, TERIMA KASIH TELAH LIHAT");kotak(f"# SELAMAT DATANG PENGGUNA BARU !!", K, C)
 
 
