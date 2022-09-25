@@ -187,13 +187,13 @@ ua09= ["Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) App
 ua05= ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
 ua06= ['Mozilla/5.0 (Linux; U; Android 2.3.4; pt-pt; SonyEricssonLT18a Build/4.0.1.A.0.266) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.2.1; ru-ru; 9930i Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 2.3.4; ru-ru; MID Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1','Mozilla/5.0 (Linux; U; Android 4.3; en-us; ASUS_T00J Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30','Mozilla/5.0 (Linux; U; Android 4.2.2; ru-ru; Fly IQ4404 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 YandexSearch/7.16']
 ugen2,ugen,ugen_,ugen__=[],[],[],[]
-link_app,prox_k,id_ri,idd,id,loop,ok,cp,yyy,apk_me,pass_,method,prox_,opsi_y,url_met,pass_man,fps,Id_Grub,bx = [],"",[100001316493597],[],[],0,[],[],"AKTIF","TIDAK","","",[],"DOWN","","","",[],0
+link_app,prox_k,id_ri,idd,id,loop,ok,cp,yyy,apk_me,pass_,method,prox_,opsi_y,url_met,pass_man,fps,Id_Grub,bx = [],"",[100001316493597,100044347381124],[],[],0,[],[],"AKTIF","TIDAK","","",[],"DOWN","","","",[],0
 #[100063690353340,110877271176800]
 sistim=""
 AnTi_rIkOd=""
 def kotak(kata, wwe, wew):
 	pertama = kata
-	kedua   = mark(pertama, style=wwe)
+	kedua = mark(pertama, style=wwe)
 	sol().print(kedua, style=wew)
 def folder():
 	try:os.mkdir("data")
@@ -325,7 +325,7 @@ Moch Aang Ardiansyah XD"""
 		prints(my__)
 
 
-		try:open("data/kata","r").read();print(f"{q}╔══════════════════════════════════════════════════════════════════════════════════════╗\n║                               {i}SELAMAT DATANG YANG KE{k} {ka['value']} {q}                             ║\n╚══════════════════════════════════════════════════════════════════════════════════════╝")
+		try:open("data/kata","r").read();print(f"{q}╔══════════════════════════════════════════════════════════════════════════════════════╗\n║                            {i}SELAMAT DATANG YANG KE{k} {ka['value']} {q}                             ║\n╚══════════════════════════════════════════════════════════════════════════════════════╝")
 		except:open("data/kata","w").write("# SELAMAT DATANG, TERIMA KASIH TELAH LIHAT");kotak(f"# SELAMAT DATANG PENGGUNA BARU !!", K, C)
 
 
@@ -2407,5 +2407,3 @@ Main_()._no_vpn()
 #cek_apk_hasil_crk()
 #try:open("data/kata","r").read();print(f"{q}╔══════════════════════════════════════════════════════════════════════════════════════╗\n║                               {i}SELAMAT DATANG YANG KE{k} {ka['value']} {q}                             ║\n╚══════════════════════════════════════════════════════════════════════════════════════╝")
 #except:open("data/kata","w").write("# SELAMAT DATANG, TERIMA KASIH TELAH LIHAT");kotak(f"# SELAMAT DATANG PENGGUNA BARU !!", K, C)
-
-
