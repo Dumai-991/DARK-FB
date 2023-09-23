@@ -1,6 +1,6 @@
-Welcome
+This Script is No Longer Updated
 --------|
-![](https://media.tenor.com/iVCiM9W7cvYAAAAd/welcome.gif)
+![](https://media.tenor.com/PWXvVIbIkA4AAAAC/close-close-movie.gif)
 
 <details>
   <summary><b>More information</b></summary>
